@@ -12,6 +12,7 @@ class SearchBar extends React.Component{
    
     //future proof will dynamically get the options from the Yelp APi 
     renderSortByOptions(){
+        
         return Object.keys(sortByOptions).map(sortByOption=>{
             let sortByOptionValue = sortByOptions[sortByOption];
             return <li key={sortByOptionValue}>{sortByOption}</li>
