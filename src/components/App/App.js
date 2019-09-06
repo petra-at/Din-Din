@@ -6,10 +6,11 @@ import SearchBar from '../SearchBar/SearchBar';
 class App extends React.Component {
   render(){
   return (
+    
     <div className="App">
       <h1>Din-Din</h1>
      <SearchBar />
-     <BusinessList />
+     <BusinessList /> 
 </div>
   );
 }
