@@ -56,7 +56,6 @@ class SearchBar extends React.Component{
         event.preventDefault();//prevent the default behaviour triggering for the event
     }
    
-    //future proof will dynamically get the options from the Yelp APi 
     renderSortByOptions(){
         
         return Object.keys(this.sortByOptions).map(sortByOption=>{

@@ -3,7 +3,9 @@ import './Business.css';
 
 class Business extends React.Component{
     render(){
+        
         const {business} = this.props; // shorthand of getting business from props = object.business, so since this .props is the object holding business this works
+        const parameters =`https://www.google.com/maps/search/?api=1&query=${business.address}${business.city}`;
         return (
             <div>
                 <div className="image-container">
@@ -12,7 +14,7 @@ class Business extends React.Component{
                 <h2>{business.name}</h2>
                 <div className="Business-information">
                     <div className="Business-address">
-                        <p>{business.address}</p>
+                        <a href={parameters}>{business.address}</a>
                         <p>{business.city}</p>
                         <p>{business.state} {business.zipCode}</p>
                     </div>
