@@ -22,6 +22,7 @@ class SearchBar extends React.Component{
         this.handleLocationChange=this.handleLocationChange.bind(this);
         this.handleTermChange=this.handleTermChange.bind(this);
         this.handleSearch=this.handleSearch.bind(this);
+       
     }
 
     getSortByClass(sortByOption){
@@ -31,11 +32,11 @@ class SearchBar extends React.Component{
             return '';
     }
 
-    handleSortbyChange(sortByOption)
+      handleSortbyChange(sortByOption,event)
     {
         this.setState({
             sortBy: sortByOption
-        });
+        },this.handleSearch.bind(this,event));
     }
 
     handleTermChange(event){
@@ -53,14 +54,14 @@ class SearchBar extends React.Component{
 
     handleSearch(event){
         this.props.searchYelp(this.state.term,this.state.location,this.state.sortBy);
-        event.preventDefault();//prevent the default behaviour triggering for the event
+        event.persist();//prevent the default behaviour triggering for the event
     }
    
     renderSortByOptions(){
         
         return Object.keys(this.sortByOptions).map(sortByOption=>{
             let sortByOptionValue = this.sortByOptions[sortByOption];
-            return <li className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue} onClick={this.handleSortbyChange.bind(this,sortByOptionValue)}>{sortByOption}</li> //the binding is declared here because we want to refer to the actual sort by action list not the general search bar section
+            return <li className={this.getSortByClass(sortByOptionValue)} key={sortByOptionValue} onClick={this.handleSortbyChange.bind(this,sortByOptionValue)}>{sortByOption}</li>//the binding is declared here because we want to refer to the actual sort by action list not the general search bar section
         });   
     }
    
