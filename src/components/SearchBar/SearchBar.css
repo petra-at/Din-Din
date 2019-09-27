@@ -53,6 +53,11 @@
     font-size: .77rem;
     font-weight: 500;
   }
+
+  .SearchBar-fields span{
+    height:1em;
+  }
+  
   
   .SearchBar-fields input:last-child {
     margin-right: 0;

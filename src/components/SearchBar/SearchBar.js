@@ -1,5 +1,7 @@
 import React from 'react'; 
 import './SearchBar.css'; 
+import PlacesAutoCompletion from '../../util/PlacesAutoCompletion';
+
 
 class SearchBar extends React.Component{
 
@@ -9,7 +11,8 @@ class SearchBar extends React.Component{
         this.state={
             term:'',
             location:'',
-            sortBy:'best_match'
+            sortBy:'best_match',
+            transfer:false
         };
 
         this.sortByOptions={
@@ -35,8 +38,10 @@ class SearchBar extends React.Component{
       handleSortbyChange(sortByOption,event)
     {
         this.setState({
-            sortBy: sortByOption
+            sortBy: sortByOption,
+            transfer:true
         },this.handleSearch.bind(this,event));
+
     }
 
     handleTermChange(event){
@@ -53,8 +58,17 @@ class SearchBar extends React.Component{
     }
 
     handleSearch(event){
-        this.props.searchYelp(this.state.term,this.state.location,this.state.sortBy);
-        event.persist();//prevent the default behaviour triggering for the event
+        event.persist();
+        if(event.keyCode===13||event.type==='click'||this.state.transfer)
+        {
+            this.props.searchYelp(this.state.term,this.state.location,this.state.sortBy);
+        }
+        this.setState(
+            {
+                transfer:false
+            }
+        )
+        
     }
    
     renderSortByOptions(){
@@ -67,6 +81,7 @@ class SearchBar extends React.Component{
    
     render(){
         return(
+            
             <div className="SearchBar">
                 <div className="SearchBar-sort-options">
                     <ul>
@@ -74,15 +89,18 @@ class SearchBar extends React.Component{
                     </ul>
                 </div>
                 <div className="SearchBar-fields">
-                    <input onChange={this.handleTermChange} placeholder="Search Businesses" />
-                    <input onChange={this.handleLocationChange} placeholder="Where?" />
-                </div>
+                    <input id="business" onKeyUp={this.handleSearch} onChange={this.handleTermChange} placeholder="Search Businesses" />
+        {/*<input onKeyUp={this.handleSearch} onChange={this.handleLocationChange} placeholder="Where?" />*/}
+        <span><PlacesAutoCompletion/></span>
+                </div> 
                 <div onClick={this.handleSearch} className="SearchBar-submit">
                     <a>Let's Go</a>
                 </div>
-            </div>
+        </div>
         );
     }
 }
 
 export default SearchBar;
+
+/*NEED TO ADD A SEARCH BY DISTANCE OR RADIUS FROM CENTRAL LOCATION */
