@@ -2,7 +2,6 @@ import React from 'react';
 import './SearchBar.css'; 
 import PlacesAutoCompletion from '../../util/PlacesAutoCompletion';
 
-
 class SearchBar extends React.Component{
 
     constructor(props){
@@ -89,9 +88,9 @@ class SearchBar extends React.Component{
                     </ul>
                 </div>
                 <div className="SearchBar-fields">
-                    <input id="business" onKeyUp={this.handleSearch} onChange={this.handleTermChange} placeholder="Search Businesses" />
-        {/*<input onKeyUp={this.handleSearch} onChange={this.handleLocationChange} placeholder="Where?" />*/}
-        <span><PlacesAutoCompletion/></span>
+                    <input id="business" onKeyUp={this.handleSearch} onChange={this.handleTermChange} placeholder="Type of food..." />
+        <input onKeyUp={this.handleSearch} onChange={this.handleLocationChange} placeholder="City..." />
+        {/*<span><PlacesAutoCompletion onKeyUp={this.handleSearch} onChange={this.handleLocationChange} onSelect={this.handleLocationChange}/></span>*/}
                 </div> 
                 <div onClick={this.handleSearch} className="SearchBar-submit">
                     <a>Let's Go</a>

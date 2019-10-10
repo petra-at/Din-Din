@@ -2,6 +2,8 @@
 
 html {
   font-size: 18px;
+  min-height: 100vh;
+  position: relative; 
 }
 
 @media only screen and (max-width: 560px) {
@@ -34,7 +36,7 @@ input:focus {
 /* App Styles */
 
 .App {
-  font-family: 'Work Sans', sans-serif;
+  min-height: 100vh;
 }
 
 h1 {
@@ -44,4 +46,17 @@ h1 {
   font-family: Poppins, sans-serif;
   font-size: 1.8rem;
   color: #fff;
+  margin: 0;
+}
+
+footer{
+  font-size : .8rem ;
+  font-family:sans-serif;
+  background-color: #000;
+  color:#fff;
+  padding: .66rem 0;
+  text-align: center;
+  position: absolute; 
+  bottom: 0;
+  min-width:100%
 }

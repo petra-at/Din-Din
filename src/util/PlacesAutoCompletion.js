@@ -8,25 +8,10 @@ class PlacesAutoCompletion extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-        address: '',
-        //gmapsLoaded: false,
-
+        address: ''
     };
   }
-/*
-  initMap = () => {
-    this.setState({
-      gmapsLoaded: true,
-    })
-  }
 
-  componentDidMount () {
-    window.initMap = this.initMap
-    const gmapScriptEl = document.createElement(`script`)
-    gmapScriptEl.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQST298C8GseEjEmkyurd7lnKTKE4XBjM&libraries=places&callback=initMap';
-    document.querySelector(`body`).insertAdjacentElement(`beforeend`, gmapScriptEl);
-  }
-*/
   handleChange = address => {
     this.setState({ address });
   };
@@ -53,6 +38,7 @@ class PlacesAutoCompletion extends React.Component {
                 className: 'location-search-input',
               })}
             />
+
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {
@@ -75,6 +61,7 @@ class PlacesAutoCompletion extends React.Component {
                 );
               })}
             </div>
+            
           </div>
         )}
       </PlacesAutocomplete>
