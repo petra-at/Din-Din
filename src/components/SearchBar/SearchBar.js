@@ -89,7 +89,7 @@ class SearchBar extends React.Component{
                 </div>
                 <div className="SearchBar-fields">
                     <input id="business" onKeyUp={this.handleSearch} onChange={this.handleTermChange} placeholder="Type of food..." />
-        <input onKeyUp={this.handleSearch} onChange={this.handleLocationChange} placeholder="City..." />
+        <input onKeyUp={this.handleSearch} onChange={this.handleLocationChange} placeholder="e.g. London " />
         {/*<span><PlacesAutoCompletion onKeyUp={this.handleSearch} onChange={this.handleLocationChange} onSelect={this.handleLocationChange}/></span>*/}
                 </div> 
                 <div onClick={this.handleSearch} className="SearchBar-submit">
@@ -103,3 +103,11 @@ class SearchBar extends React.Component{
 export default SearchBar;
 
 /*NEED TO ADD A SEARCH BY DISTANCE OR RADIUS FROM CENTRAL LOCATION */
+/* CHANGE THE AUTOCOMPLETE TO SOMETHING ELSE GOOGLE YOU'LL BE BILLED
+ADD PAGINATION 
+ADD MARGIN TO BUSINESS ADDRESS BOX - 50PX 
+ADJUST TITLE SO THAT IT WRAPS EVERYTHING HAS TO BE ALIGNED UNDER THE IMAGE 
+ADD Animation to the title so when you scroll to the top it zooms in and the icon drops down
+validation if type and city not available provide a message 
+check that fields are completed before a search is made. 
+Remove the xgl in fron to postal code */

@@ -27,10 +27,12 @@ input:focus {
   background: #000;
   height:16.66rem;
   width:16.66rem;
+  margin: 0 auto; 
 }
 
 .image-container img {
   width: 100%;
+  
 }
 
 /* App Styles */
@@ -46,7 +48,8 @@ h1 {
   font-family: Poppins, sans-serif;
   font-size: 1.8rem;
   color: #fff;
-  margin: 0;
+  margin-bottom: 0% !important;
+
 }
 
 footer{
